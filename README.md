@@ -4,7 +4,7 @@
 
 Ethereum 2.0 is the next step in the evolution of the Ethereum platforms. It brings with it many changes, including Proof-of-Stake, Sharding, new client implementations, new cryptography and much more.
 
-There are a lot of write ups, and lot of information regarding Eth 2.0. This repository aims to be a curated list and concise of links to the best Ethereum 2.0 resources out their.
+There are a lot of write ups, and lot of information regarding Eth 2.0. This repository aims to be a curated and concise list of links, with minor introductions.
 
 ## Generally on Eth 2.0
 
@@ -20,35 +20,40 @@ The transformation to Eth 2.0 is done in several stages, each introducing anothe
 - Phase 1: Shards. During this stage, several Shards will operate as independent but linked blockchains. Validators will be assigned (pseudo) randomly to shards, and will attest to blocks on each shard. The head of the shards are linked to the beacon chain
 - Phase 2: Execution. Only at this stage will the platform be fully operational, enabling transfers and smart contract execution.
 
-## Knowledge bases
-
-- ConsenSys: https://consensys.net/knowledge-base/ethereum-2
-- BeaconChain: https://kb.beaconcha.in
-- Calculator + resources: https://docs.google.com/spreadsheets/d/15tmPOvOgi3wKxJw7KQJKoUe-uonbYR6HF7u83LR5Mj4/edit#gid=1548910165
+A good all-in-one intro to Eth2.0: https://ethos.dev/beacon-chain/
 
 ## Staking
 
-- Requires 32 ETH to begin staking
-  ETH 2 only begins to “work” when there are enough validators and enough locked ETH on the chain
+The change to proof-of-stake, mandates a change in block generation process. Validators lock-up Eth (stake), and are then allowed to sign and propose blocks. At first, the system is "bootstrapped". A minimal number of validators is required. A small number of validator could give an advantage to the adversary, and break the system.
 
-* Misbehaviour will result in slashing
+To mitigate this, the beacon chain only begins generating blocks after enough Eth is locked, and enough validators have sight up.
+
+To participate in Eth 2.0 staking as an independent validator, the process is as follows:
+
+1. Obtain 32 Eth
+2. Generate keys for Eth validation and deposit
+3. Deposit 32 Eth in a special depositing smart contract
+4. Run a beacon chain client
+5. Run a validator client
+
+- Each user can run more that one validator. Each validator requires 32 ETH.
+
+- Validators expected to behave according to the protocol. This requires them to be online for voting, and to not attempt to sign and invalid block. To enforce these rules, validators who deviate from the protocol are slashed:
   - Minor slashing for liveness: About 50% uptime is requires to be profitable
-  - Massive slashing for double spend attempts
+  - Massive slashing for double spend attempts: an attempt to double spend might lead to slashing of all 32 ETH
 
-- Staked ETH will be locked up at least until stage 1.5
+Important to note that at the moment, depositing ETH into the smart contract is non-reversible. Staked ETH will be locked up at least until stage 1.5, but will still gain staking rewards and/or slashing.
 
-### Staking walkthrough
+### Staking walk-through
 
-Currently, Eth 2.0 testn
+You can experiment with participating in staking on Eth 2.0, by joining the latest testnet.
+The testnet requires Goerli Eth in order to participate.
 
 The easiest way to participate in staking on the latest testnet _medalla_ is by following the official Ethereum 2.0 launchpad
 
 - Ethereum org Launchpad: https://medalla.launchpad.ethereum.org
 
-Read the blog on the using the launchpad:
-Blog: https://blog.ethereum.org/2020/07/27/eth2-validator-launchpad/
-
-Prysm guide: https://prylabs.network/participate
+- Launchpad explanatory Blog: https://blog.ethereum.org/2020/07/27/eth2-validator-launchpad/
 
 ## Keys
 
@@ -73,8 +78,16 @@ Key generation and deposit repository: https://github.com/ethereum/eth2.0-deposi
 
 ## Consensus
 
-- Intro to sharding and beacon chain: https://ethos.dev/beacon-chain/
 - Gasper paper (Eth 2.0 consensus): https://arxiv.org/abs/2003.03052
+
+## Knowledge bases
+
+Links to good aggregators of knowledge with additional information on topics above and more
+
+- ConsenSys: https://consensys.net/knowledge-base/ethereum-2
+- BeaconChain: https://kb.beaconcha.in
+- Ethhub: https://docs.ethhub.io/ethereum-roadmap/ethereum-2.0/eth-2.0-phases/
+- Calculator + resources: https://docs.google.com/spreadsheets/d/15tmPOvOgi3wKxJw7KQJKoUe-uonbYR6HF7u83LR5Mj4/edit#gid=1548910165
 
 ## Block explorers
 
@@ -98,16 +111,20 @@ Key generation and deposit repository: https://github.com/ethereum/eth2.0-deposi
 - Eth research: https://ethresear.ch
 - Ethereum magicians: https://ethereum-magicians.org
 
-More Docs
-Roadmap https://docs.ethhub.io/ethereum-roadmap/ethereum-2.0
-Economics: https://docs.ethhub.io/ethereum-roadmap/ethereum-2.0/eth-2.0-economics/
+## Sharding
 
-Eth 2.0 spec https://github.com/ethereum/eth2.0-specs
+- Sharding FAQ: https://eth.wiki/sharding/Sharding-FAQs
+- Sharding research links: https://notes.ethereum.org/@serenity/H1PGqDhpm?type=view
 
-Annotated spec https://benjaminion.xyz/eth2-annotated-spec/
+## Spec
 
-Ethereum blog https://blog.ethereum.org/2020/06/02/the-state-of-eth2-june-2020/
+- Eth 2.0 spec: https://github.com/ethereum/eth2.0-specs
+- Annotated spec: https://benjaminion.xyz/eth2-annotated-spec/
 
-Sharding FAQ https://eth.wiki/sharding/Sharding-FAQs
+## Economics
 
-Sharding research links https://notes.ethereum.org/@serenity/H1PGqDhpm?type=view
+- Economics: https://docs.ethhub.io/ethereum-roadmap/ethereum-2.0/eth-2.0-economics/
+
+## Blogs
+
+- Ethereum blog: https://blog.ethereum.org/
