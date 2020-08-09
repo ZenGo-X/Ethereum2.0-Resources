@@ -80,6 +80,14 @@ Key generation and deposit repository: https://github.com/ethereum/eth2.0-deposi
 
 - Gasper paper (Eth 2.0 consensus): https://arxiv.org/abs/2003.03052
 
+## Sharding
+
+The introduction of shards in planned at phase 1. At the moment, the plan is to operate 64 shards, all linked to the beacon chain.
+Eth 1.0 is planned to be ported as the first of the 64 shards. Unlike the current execution model, where each transaction is completely atomic, executions on Eth2.0 shards are only going to be atomic on the shards they are launched on. Transition of information between shards will be asynchronous. DApp developers will have to conceder which shards they would like to launch their contracts on, based on the use case and the ecosystem of the shards.
+
+- Sharding FAQ: https://eth.wiki/sharding/Sharding-FAQs
+- Sharding research links: https://notes.ethereum.org/@serenity/H1PGqDhpm?type=view
+
 ## Knowledge bases
 
 Links to aggregators of knowledge with additional information on topics above and more
@@ -110,14 +118,6 @@ Links to aggregators of knowledge with additional information on topics above an
 
 - Eth research: https://ethresear.ch
 - Ethereum magicians: https://ethereum-magicians.org
-
-## Sharding
-
-The introduction of shards in planned at phase 1. At the moment, the plan is to operate 64 shards, all linked to the beacon chain.
-Eth 1.0 is planned to be ported as the first of the 64 shards. Unlike the current execution model, where each transaction is completely atomic, executions on Eth2.0 shards are only going to be atomic on the shards they are launched on. Transition of information between shards will be asynchronous. DApp developers will have to conceder which shards they would like to launch their contracts on, based on the use case and the ecosystem of the shards.
-
-- Sharding FAQ: https://eth.wiki/sharding/Sharding-FAQs
-- Sharding research links: https://notes.ethereum.org/@serenity/H1PGqDhpm?type=view
 
 ## Spec
 
