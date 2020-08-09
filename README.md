@@ -2,31 +2,31 @@
 
 ## Introduction
 
-Ethereum 2.0 is the next step in the evolution of the Ethereum platforms. It brings with it many changes, including Proof-of-Stake, Sharding, new client implementations, new cryptography and much more.
+Ethereum 2.0 is the next step in the evolution of the Ethereum platforms. It brings with it many changes, including Proof-of-Stake, Sharding, new client implementations, new cryptography and more.
 
-There are a lot of write ups, and lot of information regarding Eth 2.0. This repository aims to be a curated and concise list of links, with minor introductions.
+There are a lot of write ups, and lot of information regarding Eth 2.0. This repository aims to be a curated and concise list of resources, with minor introductions.
 
 ## Generally on Eth 2.0
 
 Ethereum 2.0 introduces several important changes to the way the current system is operated:
 
-- Proof-of-Stake: Instead of the current mechanism of Proof-of-work, where dedicated hardware is requires to participate in the consensus protocol and generate blocks, Eth 2.0 switches to Proof-of-Stake. Validators (miners) are chosen to propose and to attest to blocks according to their proportional holdings of Eth. Validators who deviate from the protocol will be punished -- slashed.
+- Proof-of-Stake: Instead of the current mechanism of Proof-of-work, where dedicated hardware is requires to participate in the consensus protocol, Eth 2.0 switches to Proof-of-Stake. Validators (instead of miners) are chosen to propose and to attest to blocks according to their proportional holdings of Eth. Validators who deviate from the protocol will be punished -- slashed.
 - Sharding: Instead of a single monolithic chain, several chains (shards) will run in parallel. They will run independently from each other, and moving information from one shard to another will require special lock-step transactions
-- eWasm execution: Instead or in addition to the currently running Ethereum-Virtual-Machine, Eth 2.0 is planned to allow execution of Web Assembly instructions, in attempt to popularize smart contract languages that do not require any specialized skills.
+- eWasm execution: Instead or in addition to the currently running Ethereum-Virtual-Machine, Eth 2.0 is planned to allow execution of Web Assembly instructions, making it easier to develop smart contracts in a verity of programming languages.
 
-The transformation to Eth 2.0 is done in several stages, each introducing another aspect of the upgraded platform.
+The transformation to Eth 2.0 is done in several stages, each introducing a different aspect
 
 - Phase 0: The beacon chain. The beacon chain is the backbone of the proof-of-stake and sharding protocols of Eth 2.0. The beacon chain will only hold information on the current set of validators, and links to blocks on all future shards.
 - Phase 1: Shards. During this stage, several Shards will operate as independent but linked blockchains. Validators will be assigned (pseudo) randomly to shards, and will attest to blocks on each shard. The head of the shards are linked to the beacon chain
 - Phase 2: Execution. Only at this stage will the platform be fully operational, enabling transfers and smart contract execution.
 
-A good all-in-one intro to Eth2.0: https://ethos.dev/beacon-chain/
+A good all-in-one intro to Eth2.0, the beacon chain and sharding: https://ethos.dev/beacon-chain/
 
 ## Staking
 
-The change to proof-of-stake, mandates a change in block generation process. Validators lock-up Eth (stake), and are then allowed to sign and propose blocks. At first, the system is "bootstrapped". A minimal number of validators is required. A small number of validator could give an advantage to the adversary, and break the system.
+The change to proof-of-stake, mandates a change in block generation process. To participate, validators lock-up (stake) Eth, and are then allowed to sign and propose blocks. Validators are assigned slots for block proposition and attestation in a pseudo-random process.
 
-To mitigate this, the beacon chain only begins generating blocks after enough Eth is locked, and enough validators have sight up.
+A minimal number of validators is required to maintain the security of the system. A small number of validator could give an advantage to the adversary, and break the system. The system thus first undergoes a "bootstrapping" process, where validators stake ETH but the beacon chain is not yet operational. The beacon chain only begins generating blocks after enough Eth is locked, and enough validators have sight up.
 
 To participate in Eth 2.0 staking as an independent validator, the process is as follows:
 
@@ -36,7 +36,7 @@ To participate in Eth 2.0 staking as an independent validator, the process is as
 4. Run a beacon chain client
 5. Run a validator client
 
-- Each user can run more that one validator. Each validator requires 32 ETH.
+- Each user can run more than one validator. Each validator requires 32 ETH.
 
 - Validators expected to behave according to the protocol. This requires them to be online for voting, and to not attempt to sign and invalid block. To enforce these rules, validators who deviate from the protocol are slashed:
   - Minor slashing for liveness: About 50% uptime is requires to be profitable
@@ -68,7 +68,7 @@ Keys use the BLS12-381 curve, which makes signature aggregation more efficient. 
 
 Blog on Ethereum keys: https://blog.ethereum.org/2020/05/21/keys/
 
-Beaconchain: https://kb.beaconcha.in/ethereum-2-keys
+Ethereum 2.0 keys summary on BeaconChain: https://kb.beaconcha.in/ethereum-2-keys
 
 EIP: https://eips.ethereum.org/EIPS/eip-2333
 
@@ -82,14 +82,14 @@ Key generation and deposit repository: https://github.com/ethereum/eth2.0-deposi
 
 ## Knowledge bases
 
-Links to good aggregators of knowledge with additional information on topics above and more
+Links to aggregators of knowledge with additional information on topics above and more
 
 - ConsenSys: https://consensys.net/knowledge-base/ethereum-2
 - BeaconChain: https://kb.beaconcha.in
 - Ethhub: https://docs.ethhub.io/ethereum-roadmap/ethereum-2.0/eth-2.0-phases/
 - Calculator + resources: https://docs.google.com/spreadsheets/d/15tmPOvOgi3wKxJw7KQJKoUe-uonbYR6HF7u83LR5Mj4/edit#gid=1548910165
 
-## Block explorers
+## Eth2.0 block explorers
 
 - Etherscan: https://beaconscan.com
 - Beacon Chain: https://beaconcha.in
@@ -112,6 +112,9 @@ Links to good aggregators of knowledge with additional information on topics abo
 - Ethereum magicians: https://ethereum-magicians.org
 
 ## Sharding
+
+The introduction of shards in planned at phase 1. At the moment, the plan is to operate 64 shards, all linked to the beacon chain.
+Eth 1.0 is planned to be ported as the first of the 64 shards. Unlike the current execution model, where each transaction is completely atomic, executions on Eth2.0 shards are only going to be atomic on the shards they are launched on. Transition of information between shards will be asynchronous. DApp developers will have to conceder which shards they would like to launch their contracts on, based on the use case and the ecosystem of the shards.
 
 - Sharding FAQ: https://eth.wiki/sharding/Sharding-FAQs
 - Sharding research links: https://notes.ethereum.org/@serenity/H1PGqDhpm?type=view
