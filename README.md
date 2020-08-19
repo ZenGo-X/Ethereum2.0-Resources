@@ -122,7 +122,8 @@ Links to aggregators of knowledge with additional information on topics above an
 ## Spec
 
 - Ethereum 2.0 spec: https://github.com/ethereum/eth2.0-specs
-- Annotated spec: https://benjaminion.xyz/eth2-annotated-spec/
+- Vitalik's annotated eth2 spec: https://github.com/ethereum/annotated-spec
+- Ben Edgington's annotated spec: https://benjaminion.xyz/eth2-annotated-spec/
 
 ## Economics
 
